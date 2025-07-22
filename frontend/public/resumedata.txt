@@ -1,0 +1,457 @@
+1) Vishaal Krishna Resume - Extracted text from PDF:
+
+Vishaal Krishna T G
+vishaalkrishna tg@gmail.c om | 86673 22426 | www . vishaalkrishna. tech
+EDUCATION
+R AJ ALAK SHMI ENGINEERING
+C OLLEGE
+B Tech. Artificial Intelligence
+and Machine Learning
+Thandalam, T amilNadu
+CGP A : 8.38 | Gr ad : 2026
+VELAMMAL VID Y ALA Y A
+HSC - 2022
+Chennai, T amilNadu
+Percen tage : 95.8
+VELAMMAL VID Y ALA Y A
+SSLC - 2020
+Chennai, T amilNadu
+Percen tage : 9 7 .4
+SKILLS
+LANGUAGES
+C | P ython | J a v a | HTML | C SS |
+J a v ascript | SQL
+TOOLS AND TECHNOLOGIES
+Git | MongoDB | Express | React |
+Node
+TECH PROFILE LINKS
+Github -github.com/Vishaal19fl
+LinkedIn -vishaalkrishnaweb
+COURSEWORK
+UNDERGRADUATE
+Data Structures
+OOPS Using Java
+DBMS
+Web Development
+Machine Learning
+ORGANIZATIONS
+LE O CL UB
+Social Service Club
+Design and Editorial Team
+2023 - 2024
+IEEE CIS SOCIETY
+Technical Society
+Core Member
+2023 - 2024ACHIEVEMENTS
+2025 Winner Winner oftheNational IITPALS Innowah 2025
+2024 TitleWinner Won Rs.1,00,000 inSmart India Hackathon 2024
+2024 Winner Won Rs.1,50,000 inaNational Hackathon (Hackfest 2024 -SAP)
+2024 Winner Won Rs.30,000 inaNational Hackathon (Hosted byMIT)
+2024 Organizer Organized a24hour Intra-College Hackathon
+WORK EXPERIENCE
+HAPPYFOX | Frontend Engineer Inter n
+J un 2025 | Chennai, T amil Nadu | O n- site
+•Currently interning asaFrontend Developer atHappyFox, working onUI
+improvements andfeature development toenhance userexperience.
+•Working extensively onfrontend development ,enhancing userexperience
+through optimized interfaces andresponsive design.
+PROJECTS
+REVIVE - A REAL TIME DISASTER INFORMATION AGGREGATION
+SOFTWARE | Team Leader, Full Sta ck Developer
+Dec 2024 – Feb 2025
+•Developed areal-time disaster information aggregation software forthe
+NDRF during theSmart India Hackathon 2024 ,featuring acomprehensive
+dashboard integrating disaster-related datacollected from various sources
+suchassocial media, news channels, andsatellite feeds ,using theMERN stack
+(MongoDB, Express.js, React, Node.js).
+•Developed user-friendly interfaces forreal-time disaster insights ,boosting
+response efficiency by30%.
+LIFELINE - AN OFFGRID DISASTER MANAGEMENT NETWORK |
+Team Leader, Web App Developer
+Ma y 2024 - Sep 2024
+•Developed aLoRa-powered hardware unitforoffline communication in
+disasters, featuring ahand-crank generator forcontinuous operation without
+electricity orinternet.
+•Ledthedevelopment ofawebapplication (React-based) featuring anadmin
+dashboard forrescue agencies andadonation platform, facilitating
+coordination andoptimizing resource allocation by70%.
+•Designed andimplemented amobile apptoseamlessly connect with
+hardware nodes ,enabling users torequest emergency supplies andreport
+events during network outages.
+BHARAT HYDROVISION - UNDERWATER ROVER FOR DAM
+INSPECTION | Team Leader, Frontend Developer
+Sep 2023 – Dec 2023
+•Ledthedevelopment ofanunderwater rover isequipped withadvanced
+sensors todetect cracks andanomalies indams andpenstocks forSmart India
+Hackathon 2023.
+•Developed thefrontend forthewebplatform thatdisplays thelivefeedfrom
+theunderwater rover’s camera andintegrates realtimecrack detection with
+precise location reporting, enhancing safety by40%.
+
+2) Keerthana M G Resume - Extracted text from PDF:
+EDUCATION PROFESSIONAL SUMMARYKEERTHANA M G
+RAJALAKSHMI ENGR. COLLEGE 
+2022-2026
+B.E Computer Science Engineering
+CGPA - 8.41
+SHREE NIKETAN MAT.HR.SEC.SCHOOL
+HSC 2022  - 98%
+SSLC 2020 - 98%Resourceful and growth-oriented Computer Science student with
+a strong foundation in web development, mobile applications,
+machine learning, and backend systems. Passionate about
+leveraging technology to solve real-world problems. Adept at
+collaborating in team environments and committed to
+contributing to impactful and scalable solutions.Chennai | keerthanamg19@gmail.com | +91 9445087093 | linkedin/keerthana-m-g | github/KeeerthanaMG 
+WORK EXPERIENCE
+ZAKAPPS - SOFTWARE DEVELOPMENT INTERN
+Built a Node.js-based Asset Management System handling
+1,000+ assets, reducing issue resolution time by 30%.
+Designed RESTful APIs with Node.js & Express.js, improving data
+retrieval speed by 25%.
+Gathered requirements from 5+ stakeholders to define clear
+backend workflows and user stories.
+Collaborated with a 4-member team for code reviews.JAN - FEB 2025 SKILLS
+PROJECTS
+RENEWIFY - SOLAR ENERGY AGGREGATOR APP      [ LINK ]
+Led a 5 member team and developed a responsive Flutter-
+based application interface, improving user engagement by
+30% guiding them throughout solar adoption journey.
+Designed a scalable PostgreSQL-powered DB for stakeholders. Technologies used : Flutter , PostgreSQL, Google Maps API
+GARBYCLE - SMART WASTE MANAGEMENT              [ LINK ]
+Developed a role-based web portal enabling 4 distinct user
+login for waste tracking using HTML, JS, and OSM APIs to
+eliminate dry waste from households to recycling centers. 
+Integrated OpenStreetMaps API for real-time waste tracking,
+reducing pickup delays by 40%.Technologies used : HTML, CSS, SEO techniques, JavascriptPROGRAMMING LANGUAGES
+Java
+Python
+TOOLS
+Git & Github
+PostmanFRAMEWORKS & LIBRARIES
+Express.js
+Flask
+React
+BootstrapC
+Javascript
+Flutterflow
+StarUML
+DATABASE
+MySQL
+PostgreSQLFirebase
+MongoDb
+CERTIFICATIONS
+Machine Learning A-Z [ Udemy ]
+Web development frontend
+certification [ Sudharshanam IT
+Academy ]
+Prompt Engineering [Linkedin]AERIAL INSPECT - BIPV ASSESSMENT AND 3D VISUALISATION
+Automated solar assessment for 10,000+ rooftops using
+Django pipelines and PostGIS. Researched and developed a
+rule-based system using Solar irradiation formulas.
+Implemented raycasting on 3D structures using Three.js,
+improving solar potential accuracy by 25%.Technologies used : Three.js, React, PostGIS, QGIS
+ACHIEVEMENTS
+Runner-up at Happyfox Hackathon 2025.
+Winner of Adeptus 2025 - national level hackathon.
+SIH 2024 Finalist under ISRO’s problem statement.
+Runner up at PEC Hacks 2.0 - national level hackathon.
+Best Software Project Award at Designathon 2024.
+Top 5 at iTNT Innovation Challenge 2024 organised by TN Govt.
+PAPER PUBLICATIONS :
+E-waste facility Locator App: Built a geospatial mapping
+system with OSM & Flask, optimizing waste facility detection.EXTRA-CURRICULARS
+PRESIDENT
+INTELLEXA REC - TECHNICAL CLUB
+DEVELOPER & SPONSORS HEAD
+FLUTTERFLOW DEVELOPERS COMMUNITY
+EVENT MANAGER
+ENTREPRENEURSHIP DEVELOPMENT CELL
+COORDINATOR ( HACKATHON )
+HACKMAGEDDON - 24 HR HACKATHON
+OPEN-SOURCE CONTRIBUTOR
+GSSOCCOORDINATOR ( OPEN-SOURCE )
+GITRECQUEST 2025 , CSSOC 2024Node.js
+Django
+Flutter
+Scikit Learn
+SOFT SKILLS
+Communication
+Event PlanningTeam Coordination
+Idea Pitching
+
+3) Deepika P Resume - Extracted text from PDF:
+Deepika Prabhakaran 
+Software Developer 
+Dedicated and motivated software developer with a strong foundation in computer science and hands-on
+experience in Java, HTML, CSS, and JavaScript. Passionate about solving complex problems through
+innovative applications and collaborating eﬀectively within teams. Committed to delivering high-quality
+solutions that address real-world challenges in a fast-paced environment. 
+deepikaprabhakaran54@gmail.com 
+9003274501 
+linkedin.com/in/deepika-prabhakaran54 
+github.com/Deepika-Prabhakaran 
+EDUCATION 
+BE Computer Science Engineering 
+Rajalakshmi Engineering College 
+05/2022 - Present
+, 
+ 
+CGPA : 8.34 
+Higher Secondary 
+Jaigopal Garodia Hindu Vidyalaya MHSS 
+05/2020 - 05/2022
+, 
+ 
+95.5% 
+Secondary School 
+Jaigopal Garodia Hindu Vidyalaya MHSS 
+05/2008 - 05/2020
+, 
+ 
+94% 
+WORK EXPERIENCE 
+Nexilo Tech - Java Developer
+ (03/2024 - 05/2024)
+ 
+Developed a suite of Java-based applications (calculator, library
+management system, online banking system) that improved user
+experience by 20% through enhanced front-end design by
+leveraging Java Swing for UI development and MySQL for secure
+data management. 
+PROJECTS 
+LifeLine - An Oﬀgrid Disaster
+Communication System 
+Smart India Hackathon 
+08/2024 - Present
+, 
+ 
+Developed a disaster-resilient communication network featuring a hand-
+crank powered unit that enables resource requests via a mobile app.
+Implemented a supervision platform for agencies, enhancing resource
+allocation tracking by 
+75%
+. Contributed to the 
+web application
+ aspect
+of the project, ensuring timely updates during emergencies. 
+SmartShelf - AI Enhanced Logistics
+Optimization 
+Personal Project 
+Developed an AI-enhanced logistics optimization system by
+implementing QR Code Scanning for database entry, Number Plate
+Detection, Cardboard Defect Detection, and Demand Forecasting.
+Achieved this by utilizing Computer Vision, YOLOv8, ResNet34, and
+ARIMA models, with a 
+React-based interface and real-time updates
+ in
+Firebase . 
+Bank Management System 
+Personal Project 
+Developed a Bank Management System by implementing modules like
+Utility Bill Payment and Instant Payment Transfer
+ 
+. Achieved this by
+utilizing Java Swing, integrating MySQL for database management, and
+Date/Time libraries, and image handling via 
+JLabel 
+. 
+SKILLS 
+C Program 
+Java 
+Python 
+MySQL 
+HTML 
+CSS 
+Javascript 
+Data Structures 
+Problem Solving 
+Communication 
+ACHIEVEMENTS 
+Title Winner of Smart India Hackathon 2024 (National
+Hackathon) 
+Winner of India's biggest National Hackathon conducted by AICTE,
+India.
+ 
+LEADERSHIP ACTIVITIES 
+Google Developer Groups REC
+ (09/2024 - Present)
+ 
+Event Management Lead
+ 
+Women Tech Makers - Google Developers Group
+ (09/2024 - Present)
+ 
+Core Member
+ 
+Yi YUVA REC, Rajalakshmi Engineering College
+ (08/2023 - 08/2024)
+ 
+Content Creation and Event Management Team
+ 
+CERTIFICATIONS 
+Course Completion of Database programming with SQL
+& PL/SQL - Oracle Academy 
+Course Completion on Introduction to Artiﬁcial
+Intelligence & Data Science - Infosys 
+LANGUAGES 
+English 
+Full Professional Proﬁciency 
+Tamil 
+Full Professional Proﬁciency 
+Telugu 
+Full Professional Proﬁciency 
+Hindi 
+Professional Working Proﬁciency 
+INTERESTS 
+Public Speaking 
+Language Learning 
+Community Volunteering 
+
+4) Meena R Resume - Extracted text from PDF:
+Artificial Intelligence Fundamentals, IBM Skills Network. 
+What is Data Science?, Coursera. 
+Tools for Data Science ,Coursera. 
+Data Science Methodology, Coursera. 
+Python Pandas, Great learning .
+Python Projects for beginners, Great learning .
+Artificial Intelligence A-Z, Udemy. 
+Machine learning Projects for beginners, Udemy. 
+M EENA R
+B-TECH ARTIFICIAL INTELLIGENCE & MACHINE LEARNING
+Va
+Valasaravakkam ,Chennai-600087
++91 8610358350
+meenaramalingamspr@gmail.com
+Meena_R_Linkedin
+Meena_R_Github
+ Finalist-Participated in the Grand Finale of SIH at Manav Rachna University ,Haryana, Smart India
+Hackathon,2023. 
+ Winner, iQuest '23,The APJ Abdul Kalam Innovative Project Cell Department Level Competition.
+ Second Runner up, iQuest '22,The APJ Abdul Kalam Innovative Project Cell Department Level
+Competition.
+CAREER OBJECTIVE
+I am currently searching for internship opportunities to enhance my experience and expertise in coding,
+machine learning, deep learning, computer vision, and full-stack development.
+EDUCATIONAL QUALIFICATION
+REWARDS AND ACHIEVEMENTS
+CERTIFICATIONS
+INTERNSHIPS
+Data Analyst Intern , Excelerate , Remote Internship, Aug 2023 
+Data Science and Business Analytics, The Sparks Foundation, Remote Internship, June 2023 
+Campus Ambassador, Acmegrade  , Remote Internship, June 2023. 
+Intern,Pantech Prolabs India Pvt Ltd ,Remote Internship,June 2023. 
+Full Stack Web Development, Anugraha Systems, Remote Internship, Jan2023 
+Artificial Intelligence, Edunet Foundation, Remote Internship, Dec 2022 
+PROJECTS  SUMMARY
+TECHNICAL SKILLS
+EXTRA CURRICULAR ACTIVITIES
+Chair, IEEE  Computational Intelligence Society(Student chapter of REC), November2023-Present. - 
+Vice president, Enactus REC, September 2023-Present. 
+Overall Coordinator , Innoventz (Department fest) ,Sept 2022. 
+Volunteer and Host, Channel surfing, Recharge Fest(College cultural Event), March 2023. 
+Member of the Core Committee, Recharge Fest(College cultural Event), March 2024.
+PERSONAL DETAILS
+DECLARATION
+ I hereby declare that the details furnished above are true and correct to the best of my knowledge. 
+Place: Chennai                                                                            
+
+5) Vishaal S Resume - Extracted text from PDF:
+Vishaal S
+STUDENT
+svishaalofficial@gmail.com 6380520414 Chennai,India
+https://www.linkedin.com/in/vishaal-s-52686b294/ https://github.com/Vishaal-sathya
+SUMMARY
+Actively learning, growing and seeking more challenges to expand my knowledge and experience so that I
+can positively impact and excel in any environment I'am put into
+SKILLS
+Python
+Machine Learning
+Deep Learning
+C
+Flutter app developmentFlutter app development
+Game Development
+SolidWorks 3D
+desigining
+C#
+EDUCATION
+Rajalakshmi Engineering College Nov 2022 -PresentB.Tech Artificial Intelligence and Machine Learning
+The Pupil Saveetha Eco School Jun 2020 -Jul 2022Higher Secondary
+ORGANIZATIONS
+IEEE-CIS Student Chapter of REC 2023 -2024Core Member - CV Domain Associate
+The student chapter consists of different domains and each domain works on it's own practical projects
+during its activity period.
+PROJECTS
+Jul 2023 -Aug 2023Surface Crack Detection Using CNN
+Make the survey and maintenance of large architectural costructs easier by using AI to detct cracks in
+buildings
+Use Convolutional Neural Networks which can process thousands of images detect the presence and
+locaton of cracks in buildings
+Using the technology the manual survey of large constructions which could take days can be finished
+in an hour
+Dec 2023 -PresentAutonomous Underwater Vechicle for Defect Detection in Dams
+Autonomous under water drone capable of detecting cracks, corrosion and abrasions in the concrete
+walls and metal constructions of dams
+the Drone is also capable of localised repair of said corrosion or cracks through remote operation by a
+technician 
+The drone comes with its own software app which ensures ease of use and also enables the historic
+maintenance records
+LANGUAGES
+English
+Tamil
+HindiHindi
+CERTIFICATES
+Certificate of Completion
+UI Path Automation Worksho
+NPTEL Certification
+Python for Data Science
+Finalist - Smart India Hackathon
+www.resumekraft.com
+Vishaal S
+STUDENT
+svishaalofficial@gmail.com 6380520414 Chennai,India
+https://www.linkedin.com/in/vishaal-s-52686b294/ https://github.com/Vishaal-sathya
+SUMMARY
+Actively learning, growing and seeking more challenges to expand my knowledge and experience so that I
+can positively impact and excel in any environment I'am put into
+SKILLS
+Python
+Machine Learning
+Deep Learning
+C
+Flutter app developmentFlutter app development
+Game Development
+SolidWorks 3D
+desigining
+C#
+EDUCATION
+Rajalakshmi Engineering College Nov 2022 -PresentB.Tech Artificial Intelligence and Machine Learning
+The Pupil Saveetha Eco School Jun 2020 -Jul 2022Higher Secondary
+ORGANIZATIONS
+IEEE-CIS Student Chapter of REC 2023 -2024Core Member - CV Domain Associate
+The student chapter consists of different domains and each domain works on it's own practical projects
+during its activity period.
+PROJECTS
+Jul 2023 -Aug 2023Surface Crack Detection Using CNN
+Make the survey and maintenance of large architectural costructs easier by using AI to detct cracks in
+buildings
+Use Convolutional Neural Networks which can process thousands of images detect the presence and
+locaton of cracks in buildings
+Using the technology the manual survey of large constructions which could take days can be finished
+in an hour
+Dec 2023 -PresentAutonomous Underwater Vechicle for Defect Detection in Dams
+Autonomous under water drone capable of detecting cracks, corrosion and abrasions in the concrete
+walls and metal constructions of dams
+the Drone is also capable of localised repair of said corrosion or cracks through remote operation by a
+technician 
+The drone comes with its own software app which ensures ease of use and also enables the historic
+maintenance records
+LANGUAGES
+English
+Tamil
+HindiHindi
+CERTIFICATES
+Certificate of Completion
+UI Path Automation Worksho
+NPTEL Certification
+Python for Data Science
+Finalist - Smart India Hackathon

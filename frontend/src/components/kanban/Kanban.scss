@@ -1,0 +1,392 @@
+.kanban-board {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  min-height: 500px;
+}
+
+.kanban-column {
+  background: #f4f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color, #4f4f50);
+  min-width: 300px;
+  flex-shrink: 0;
+  overflow: visible;
+
+  &__header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    display: flex;
+    // background: linear-gradient(to right, #ff4d00 0%, #ee4512 100%);
+    align-items: center;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    justify-content: space-between;
+    height: 70px;
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin: 0;
+      color: rgb(0, 0, 0);
+    }
+
+    .candidate-count {
+      color: #ffffff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 5px;
+      font-size: 0.875rem;
+      font-weight: 400;
+      background:  #ff4608;
+    //   box-shadow: 2px 9px 12px 0 rgba(255, 77, 0, 0.15), 13px -11px 12px 0 rgba(246, 133, 58, 0.12), 3px 3px 4px 0 rgba(255, 255, 255, 0.15) inset, -3px -3px 8px 0 rgba(0, 0, 0, 0.1) inset;
+      border: 2px dashed solid rgb(42, 42, 42);
+      display: inline-block;
+      transition: box-shadow 0.2s;
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+    min-height: 400px;
+    transition: background-color 0.2s ease;
+    position: relative;
+    overflow: visible;
+
+    &.drag-over {
+      background-color: var(--bg-hover, #f8fafc);
+      border: 2px dashed var(--primary-color, #3b82f6);
+      border-radius: 8px;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    border: 2px dashed #d3cece;
+    border-radius: 8px;
+    margin: 1rem 0;
+    transition: all 0.2s ease;
+
+    p {
+      color: var(--text-secondary);
+      font-style: italic;
+      margin: 0;
+    }
+  }
+
+  // Dark mode
+  [data-theme="dark"] & {
+    background: var(--bg-dark-secondary, #1e293b);
+    border-color: var(--border-dark, #334155);
+
+    &__header {
+      border-bottom-color: var(--border-dark, #334155);
+
+      h2 {
+        color: var(--text-dark);
+      }
+    }
+
+    &__content.drag-over {
+      background-color: var(--bg-dark-hover, #334155);
+      border-color: var(--primary-color, #3b82f6);
+    }
+
+    &__empty {
+      border-color: var(--border-dark, #334155);
+
+      p {
+        color: var(--text-dark-secondary);
+      }
+    }
+  }
+}
+
+.candidate-card {
+  background: var(--bg-primary, #ffffff);
+  border-radius: 8px;
+  padding: 0;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.1);
+  border: 2px var(--border-color, #e2e8f0);
+  transition: all 0.3s ease;
+  cursor: grab;
+  overflow: visible;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &.dragging {
+    opacity: 0.5;
+    transform: rotate(0deg);
+    cursor: grabbing;
+  }
+
+  &.drag-overlay {
+    cursor: grabbing;
+    transform: rotate(5deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  &__banner {
+
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 0.75rem;
+
+    .banner-label {
+      background: rgb(21, 107, 255);
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+ 
+      font-weight: 300;
+    }
+
+    .banner-date {
+      display: flex;
+      color: rgb(77, 77, 77);
+      align-items: center;
+      gap: 0.25rem;
+      opacity: 0.9;
+
+      i {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  &__content {
+    padding: 1.25rem;
+    overflow: visible;
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    overflow: visible;
+
+    &__info {
+      flex: 1;
+      text-align: left;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem 0;
+    }
+
+    &__role {
+      display: inline-block;
+      
+      color: rgb(53, 53, 53);
+
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 300;
+    }
+  }
+
+  &__actions {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 10;
+
+    .more-actions-btn {
+      background: var(--bg-hover, #f3f4f6);
+      color: var(--text-primary, #333);
+      border: 1px solid var(--border-color, #e2e8f0);
+      padding: 0.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+
+      &:hover {
+        background: var(--primary-color, #3b82f6);
+        color: white;
+        border-color: var(--primary-color, #3b82f6);
+      }
+
+      svg {
+        font-size: 16px;
+      }
+    }
+
+    .actions-dropdown {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      background: var(--bg-primary, #ffffff);
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 6px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+        z-index: 99999;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border: none;
+        background: none;
+        width: 100%;
+        font-size: 0.75rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        text-align: left;
+
+        &:first-child {
+          border-top-left-radius: 6px;
+          border-top-right-radius: 6px;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
+
+        i {
+          font-size: 0.75rem;
+        }
+
+        &.proceed {
+          color: var(--success-color, #10b93a);
+
+          &:hover {
+            background: rgba(16, 185, 58, 0.1);
+          }
+        }
+
+        &.reject {
+          color: var(--danger-color, #ef1b1b);
+
+          &:hover {
+            background: rgba(239, 27, 27, 0.1);
+          }
+        }
+
+        &.view {
+          color: var(--info-color, #f66815);
+
+          &:hover {
+            background: rgba(246, 104, 21, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  // Dark mode
+  [data-theme="dark"] & {
+    background: var(--bg-dark, #0f172a);
+    border-color: var(--border-dark, #334155);
+
+    &__header h3 {
+      color: var(--text-dark);
+    }
+
+    &__actions .actions-dropdown {
+      background: var(--bg-dark, #0f172a);
+      border-color: var(--border-dark, #334155);
+    }
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .kanban-board {
+    gap: 1rem;
+  }
+
+  .kanban-column {
+    min-width: 280px;
+  }
+
+  .kanban-column__content {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kanban-board {
+    gap: 1rem;
+  }
+
+  .kanban-column {
+    min-width: 250px;
+
+    &__content {
+      min-height: 300px;
+      padding: 0.75rem;
+    }
+  }
+
+  .candidate-card {
+    &__content {
+      padding: 1rem;
+    }
+
+    &__actions .actions-dropdown {
+      position: fixed;
+      top: auto;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      transform: none;
+      max-width: none;
+
+      &.show {
+        transform: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .candidate-card {
+    &__actions .btn {
+      font-size: 0.875rem;
+      padding: 0.75rem;
+    }
+  }
+}
