@@ -106,8 +106,8 @@ nexus/
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
-cd nexus/backend
+git clone https://github.com/vishaalkrishna19/hf-nexus.git
+cd hf-nexus/backend
 ```
 
 2. **Create and activate virtual environment**

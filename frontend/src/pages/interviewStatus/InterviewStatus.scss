@@ -1,0 +1,145 @@
+.interview-status {
+  padding: 2rem;
+  min-height: 100vh;
+  background: var(--background-color, #f8f9fa);
+
+  &__header {
+    margin-bottom: 2rem;
+    text-align: left;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-color, #666);
+      opacity: 0.8;
+    }
+  }
+
+  .dropdown {
+    margin-bottom: 2rem;
+    max-width: 320px;
+
+    .dropdown-label {
+      font-weight: 400;
+      margin-bottom: 15px;
+      text-align: left;
+      display: block;
+      color: var(--text-color, #333);
+    }
+
+    select {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--card-border, #ccc);
+      font-size: 14px;
+      font-weight: 200;
+      background: var(--card-bg-color, #fff);
+      color: var(--text-color, #222);
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color, #ec4001);
+        box-shadow: 0 0 0 2px rgba(236, 64, 1, 0.1);
+      }
+    }
+  }
+
+  .kanban-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding-bottom: 3rem;
+    
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--card-bg-color, #f1f1f1);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--primary-color, #ec4001);
+      border-radius: 4px;
+      opacity: 0.7;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-color, #d63801);
+    }
+  }
+}
+
+// Dark mode support
+body.dark-mode .interview-status {
+  background: var(--background-color, #1a1a1a);
+
+  &__header {
+    h1 {
+      color: var(--primary-color, #ff6b35);
+    }
+
+    p {
+      color: var(--text-color, #ccc);
+    }
+  }
+
+  .dropdown {
+    .dropdown-label {
+      color: var(--text-color, #fff);
+    }
+
+    select {
+      background: var(--card-bg-color, #2d2d2d);
+      color: var(--text-color, #fff);
+      border-color: var(--card-border, #444);
+    }
+  }
+
+  .kanban-container {
+    &::-webkit-scrollbar-track {
+      background: var(--card-bg-color, #2d2d2d);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .interview-status {
+    padding: 1rem;
+
+    &__header h1 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .interview-status {
+    padding: 1rem;
+
+    &__header {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .dropdown {
+      max-width: 100%;
+    }
+  }
+}
