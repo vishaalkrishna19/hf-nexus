@@ -19,6 +19,9 @@ HappyFox Nexus serves as the central point of connection between resumes, data, 
 - **Experience Details**: Internships, projects, and tech stack identification
 - **Achievements & Skills**: Awards recognition and programming language detection
 
+### Extracted Data Interface
+![Extracted Interface](./screenshots/extracted.png)
+
 ### 🔍 OCR Fallback Technology
 - **Tesseract Integration**: Advanced OCR engine for text extraction from scanned documents and images
 - **Image Processing**: Handles resumes in image formats with high accuracy
@@ -270,11 +273,11 @@ Each extractor module combines rule-based patterns with NLP:
 
 ## 📸 Screenshots
 
-### Screenshot 1: Resume Parsing Dashboard
-*[Include a screenshot showing the main dashboard with uploaded resumes and extracted data in a table format, highlighting the parsed information like names, emails, skills, etc.]*
+### Resume Parser page
+![Resume Parsing Dashboard](./screenshots/landing_page.png)
 
-### Screenshot 2: AI-Powered Ranking Interface
-*[Include a screenshot of the ranking page showing the job description input field and the ranked candidates table with scores and detailed analysis]*
+### Ranking Interface
+![AI-Powered Ranking Interface](./screenshots/ranking.png)
 
 
 
