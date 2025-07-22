@@ -1,0 +1,228 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #202424;
+  border-bottom: 1px solid #4b5563;
+  z-index: 1000;
+  box-shadow:0px 3px 8px rgba(0, 0, 0, 0.2);
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 24px;
+    max-width: 100%;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(145deg, #545454, #9b9b9b);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-left: -10px;
+        margin-right: 10px;
+        font-size: 20px;
+        box-shadow: 2px 2px 0px #666464, 0px 2px 0px #a7a7a7;
+
+        .ai-logo-image {
+          width: 1.2rem;
+          object-fit: contain;
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      .app-title {
+        font-size: 22px;
+        font-weight: 300;
+        color: #ffffff;
+        margin: 0;
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .search-container {
+      position: relative;
+      
+      .search-input {
+        width: 300px;
+        height: 40px;
+        padding: 0 40px 0 16px;
+        border: 1px solid #4b5563;
+        border-radius: 8px;
+        font-size: 14px;
+        background: #4b5563;
+        color: #ffffff;
+        transition: all 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #6366f1;
+          background: #374151;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #d1d5db;
+        font-size: 16px;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .theme-toggle-btn {
+        position: relative;
+        background: none;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: #4b5563;
+        }
+
+        .theme-icon {
+          width: 20px;
+          height: 20px;
+          filter: brightness(0) invert(1);
+          object-fit: contain;
+        }
+      }
+
+      .notification-btn {
+        position: relative;
+        background: none;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: #4b5563;
+        }
+
+        .notification-icon {
+          width: 20px;
+          height: 20px;
+          filter: brightness(0) invert(1);
+          object-fit: contain;
+        }
+
+        .notification-badge {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+    
+          color: white;
+          font-size: 11px;
+          font-weight: 600;
+          padding: 2px 6px;
+          border-radius: 10px;
+          min-width: 18px;
+          text-align: center;
+        }
+      }
+
+      .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: #4b5563;
+        }
+
+        .user-avatar {
+          width: 36px;
+          height: 36px;
+          background: #aeadad;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+        .user-info {
+          display: flex;
+          flex-direction: column;
+          
+          .user-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            line-height: 1.2;
+          }
+
+          .user-role {
+            font-size: 12px;
+            color: #d1d5db;
+            line-height: 1.2;
+          }
+        }
+
+        .dropdown-arrow {
+          font-size: 12px;
+          color: #d1d5db;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 0 16px;
+    }
+
+    .search-container .search-input {
+      width: 200px;
+    }
+
+    .user-info {
+      display: none;
+    }
+  }
+}

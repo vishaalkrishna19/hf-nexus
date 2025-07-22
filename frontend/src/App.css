@@ -1,0 +1,84 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --card-bg-color: #ffffff;
+  --card-border: rgba(166, 163, 162, 0.15);
+  --card-shadow: rgba(72, 72, 72, 0.1);
+  --primary-color: #ec4001;
+  --secondary-bg: #f9fafb;
+  --border-color: #e5e7eb;
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-border: rgba(249, 85, 44, 0.3);
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg-color: #1e1e1e;
+  --card-border: rgba(80, 80, 80, 0.3);
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --primary-color: #ff6b35;
+  --secondary-bg: #252525;
+  --border-color: #333;
+  --input-bg: rgba(30, 30, 30, 0.9);
+  --input-border: rgba(249, 85, 44, 0.5);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Common theme-related styles */
+.glass-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px 0 var(--card-shadow);
+}
+
+.glass-input {
+  background: var(--input-bg);
+  border-color: var(--input-border);
+  color: var(--text-color);
+}
+
+.glass-inner {
+  background-color: var(--secondary-bg);
+  border-color: var(--card-border);
+}
+
+/* Original App styles */
+.App-header {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.App-header h1 {
+  margin-bottom: 20px;
+}
+
+.App-header h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #61dafb;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
