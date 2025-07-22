@@ -1,8 +1,8 @@
 # 📊 HappyFox Nexus - Rule-Based Resume Parser & AI Shortlister
 
-> **Transforming complex hiring processes into streamlined and intelligent workflows**
-
 HappyFox Nexus serves as the central point of connection between resumes, data, and recruiters. Built with a hybrid architecture combining high-speed rule-based parsing enhanced with NLP and POS tagging for rapid extraction, and Google Gemini API for intelligent candidate ranking and qualitative analysis.
+
+> **NOTE : Works well with ATS compliant resumes**
 
 ## 🚀 Key Features
 
