@@ -1,0 +1,6 @@
+from .ranker import router as ranker_router
+
+def setup_routes(app):
+    # ...existing code...
+    app.include_router(ranker_router)
+    # ...existing code...
