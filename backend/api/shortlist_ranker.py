@@ -174,7 +174,7 @@ Output only the JSON array, no explanation or markdown:
 """
 
     def gemini_call():
-        api_key = os.getenv("GOOGLE_API_KEY") or 'AIzaSyBf_FexIh3jQP69UA0ymeCP7Gaodl5Wlgg'
+        api_key = os.getenv("GOOGLE_API_KEY") or 'YOUR_GEMINI_API_KEY'
         genai.configure(api_key=api_key)
         try:
             model = genai.GenerativeModel("gemini-2.0-flash")
