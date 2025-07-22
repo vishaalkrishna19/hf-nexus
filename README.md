@@ -277,7 +277,7 @@ Each extractor module combines rule-based patterns with NLP:
 ![Resume Parsing Dashboard](/landing_page.png)
 
 ### Ranking Interface
-![AI-Powered Ranking Interface](/ranking.png)
+![AI-Powered Ranking Interface](/ranked.png)
 
 
 
