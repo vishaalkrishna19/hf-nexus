@@ -134,6 +134,11 @@ pip install -r requirements.txt
 ```bash
 python -m spacy download en_core_web_sm
 ```
+Use:
+```bash
+pip install --upgrade numpy spacy thinc
+```
+if there is a numpy error
 
 5. **Configure environment variables**
 Create a `.env` file in `backend/myproject/`:

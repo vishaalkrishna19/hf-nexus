@@ -16,16 +16,14 @@ const Resume = () => {
   const [currentlyProcessing, setCurrentlyProcessing] = useState('');
   const [expandedRows, setExpandedRows] = useState(new Set());
   const [successMessage, setSuccessMessage] = useState('');
-  // Add state for ranking loading
   const [rankingLoading, setRankingLoading] = useState(false);
-  const [atsResults, setAtsResults] = useState([]); // [{score, status, details}...]
-  const [rawAtsResults, setRawAtsResults] = useState([]); // For immediate ATS after upload
-  const [rawParsedData, setRawParsedData] = useState([]); // For immediate raw data
-  const [uploadType, setUploadType] = useState('files'); // 'files' or 'excel'
+  const [atsResults, setAtsResults] = useState([]);
+  const [rawAtsResults, setRawAtsResults] = useState([]);
+  const [rawParsedData, setRawParsedData] = useState([]);
+  const [uploadType, setUploadType] = useState('files');
   const [excelFile, setExcelFile] = useState(null);
   const [driveLinks, setDriveLinks] = useState([]);
 
-  // Set parsed data from context when component mounts
   useEffect(() => {
     if (parsedResumes.length > 0) {
       setAllParsedData(parsedResumes);
@@ -56,7 +54,6 @@ const Resume = () => {
     setAtsResults([]);
     setRawAtsResults([]);
     setRawParsedData([]);
-    // Remove immediate ATS check and raw parsing
   };
 
   const checkATS = async (resume) => {
@@ -78,8 +75,6 @@ const Resume = () => {
     if (selectedFile && (selectedFile.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || 
                         selectedFile.type === 'application/vnd.ms-excel')) {
       setExcelFile(selectedFile);
-      
-      // Read and extract Google Drive links from Excel
       const reader = new FileReader();
       reader.onload = (event) => {
         try {
@@ -88,11 +83,8 @@ const Resume = () => {
           const sheetName = workbook.SheetNames[0];
           const worksheet = workbook.Sheets[sheetName];
           const jsonData = XLSX.utils.sheet_to_json(worksheet);
-          
-          // Extract Google Drive links from Excel data
           const links = [];
           jsonData.forEach((row, index) => {
-            // Look for Google Drive links in any column
             Object.values(row).forEach(cellValue => {
               if (typeof cellValue === 'string' && 
                   (cellValue.includes('drive.google.com') || cellValue.includes('docs.google.com'))) {
@@ -104,16 +96,13 @@ const Resume = () => {
               }
             });
           });
-          
           setDriveLinks(links);
           console.log('Extracted Google Drive links:', links);
-          
         } catch (error) {
           console.error('Error reading Excel file:', error);
           alert('Error reading Excel file. Please make sure it\'s a valid Excel file.');
         }
       };
-      
       reader.readAsBinaryString(selectedFile);
     } else {
       alert('Please select a valid Excel file (.xlsx or .xls)');
@@ -123,42 +112,31 @@ const Resume = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (uploadType === 'files' && files.length === 0) {
       setError('Please select at least one file');
       return;
     }
-    
     if (uploadType === 'excel' && !excelFile) {
       setError('Please select an Excel file with Google Drive links');
       return;
     }
-
     setLoading(true);
     setError('');
     setAllParsedData([]);
     setSuccessMessage('');
     setAtsResults([]);
-    
     const parsedResults = [];
-
     if (uploadType === 'excel' && excelFile) {
-      // Process Excel with Google Drive links
       setCurrentlyProcessing('Processing Excel file and testing Google Drive links...');
-      
       try {
         const formData = new FormData();
         formData.append('excel_file', excelFile);
-        
         const response = await fetch('http://127.0.0.1:8000/api/process-excel-drive-links/', {
           method: 'POST',
           body: formData,
         });
-
-        // Get response text first to debug
         const responseText = await response.text();
         console.log('Raw response:', responseText);
-
         if (!response.ok) {
           let errorMessage = `HTTP error! status: ${response.status}`;
           try {
@@ -167,56 +145,40 @@ const Resume = () => {
               errorMessage = errorData.error;
             }
           } catch (parseError) {
-            // Use the raw response text if JSON parsing fails
             errorMessage = responseText || errorMessage;
           }
           throw new Error(errorMessage);
         }
-
         const result = JSON.parse(responseText);
-        
         if (result.success) {
-          // Show accessibility report
           if (result.accessibility_report && result.accessibility_report.inaccessible > 0) {
             console.warn('Some Google Drive links are not accessible:', result.accessibility_report);
-            
             const inaccessibleDetails = result.accessibility_report.inaccessible_details
               .map(item => `• ${item.name}: ${item.error}`)
               .join('\n');
-            
             const warningMessage = `Warning: ${result.accessibility_report.inaccessible} of ${result.total_links} Google Drive links are not accessible:\n\n${inaccessibleDetails}\n\nPlease ensure files are set to "Anyone with the link can view"`;
-            
             if (result.successful_parses === 0) {
               throw new Error(warningMessage);
             } else {
-              // Show warning but continue processing
               console.warn(warningMessage);
               setError(`⚠️ ${result.accessibility_report.inaccessible} files could not be accessed. Successfully processed ${result.successful_parses} files.`);
             }
           }
-          
-          // Process each parsed resume from the backend
           for (let i = 0; i < result.parsed_resumes.length; i++) {
             const resumeData = result.parsed_resumes[i];
             setCurrentlyProcessing(`Processing resume ${i + 1} of ${result.parsed_resumes.length}: ${resumeData.name || 'Unknown'}`);
-            
-            // Only run ATS check for successfully parsed resumes
             if (!resumeData.error) {
               const ats = await checkATS(resumeData);
               resumeData.ats = ats;
             } else {
-              // Set default ATS for failed resumes
               resumeData.ats = { score: 0, status: 'Error', details: [resumeData.error] };
             }
-            
             parsedResults.push(resumeData);
           }
-          
           console.log(`Processed ${result.successful_parses} of ${result.total_links} resumes successfully`);
         } else {
           throw new Error(result.error || 'Failed to process Excel file with Google Drive links');
         }
-        
       } catch (error) {
         console.error('Error processing Excel with Google Drive links:', error);
         setError('Error processing Excel file: ' + error.message);
@@ -224,26 +186,20 @@ const Resume = () => {
         return;
       }
     } else {
-      // Process regular files (existing logic)
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         setCurrentlyProcessing(`Processing ${file.name} (${i + 1}/${files.length})`);
-        
         const formData = new FormData();
         formData.append('resume_file', file);
-
         try {
           const response = await fetch('http://127.0.0.1:8000/', {
             method: 'POST',
             body: formData,
           });
-
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
-
           const result = await response.json();
-          
           if (result.success) {
             const parsed = {
               filename: file.name,
@@ -255,7 +211,6 @@ const Resume = () => {
           } else {
             throw new Error(result.error || 'Failed to parse resume');
           }
-          
         } catch (error) {
           console.error(`Error parsing ${file.name}:`, error);
           parsedResults.push({
@@ -280,18 +235,13 @@ const Resume = () => {
         }
       }
     }
-    
     setAllParsedData(parsedResults);
     setAtsResults(parsedResults.map(r => r.ats || { score: 0, status: 'Not Compliant', details: [] }));
-    // Store the parsed data in context
     storeResumeData(parsedResults);
     setCurrentlyProcessing('');
     setLoading(false);
-    // Set success message
     const resumeCount = parsedResults.length;
     setSuccessMessage(`Successfully processed ${resumeCount} resume${resumeCount !== 1 ? 's' : ''}!`);
-    
-    // Clear the success message after 5 seconds
     setTimeout(() => {
       setSuccessMessage('');
     }, 5000);
@@ -302,7 +252,7 @@ const Resume = () => {
     setExcelFile(null);
     setDriveLinks([]);
     setAllParsedData([]);
-    storeResumeData([]); // Clear the stored data
+    storeResumeData([]);
     setError('');
     setCurrentlyProcessing('');
     setSuccessMessage('');
@@ -313,7 +263,6 @@ const Resume = () => {
       alert('No data to export');
       return;
     }
-
     try {
       const response = await fetch('http://127.0.0.1:8000/api/export-excel/', {
         method: 'POST',
@@ -325,7 +274,6 @@ const Resume = () => {
           filename: 'multiple_resumes'
         }),
       });
-
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
@@ -346,14 +294,12 @@ const Resume = () => {
     }
   };
 
-  // Handler for Rank Resumes
   const handleRankResumes = async () => {
     if (allParsedData.length === 0) {
       alert('No data to rank');
       return;
     }
     setRankingLoading(true);
-    // Show toast only for ranking resumes, with a leading icon
     const toastId = toast.loading(
       <span>
         <span role="img" aria-label="ranking" style={{ marginRight: 8 }}>🏆</span>
@@ -369,7 +315,6 @@ const Resume = () => {
       if (!response.ok) throw new Error('Failed to rank resumes');
       const ranked = await response.json();
       toast.success('Ranking complete!', { id: toastId });
-      // Navigate to /ranked with ranked data
       navigate('/ranked', { state: { rankedResumes: ranked.ranked_resumes } });
     } catch (err) {
       toast.error('Error ranking resumes: ' + err.message, { id: toastId });
@@ -389,11 +334,9 @@ const Resume = () => {
 
   const formatListData = (data, isExpanded = false) => {
     if (!data || !Array.isArray(data) || data.length === 0) return 'Not found';
-    
     if (isExpanded) {
-      return data; // Return array for expanded view
+      return data;
     } else {
-      // Show first 2 items and add "..." if there are more
       if (data.length <= 2) {
         return data.join(', ');
       } else {
@@ -412,11 +355,9 @@ const Resume = () => {
         </ul>
       );
     }
-    
     if (type === 'list') {
       return formatListData(data, false);
     }
-    
     return data;
   };
 
@@ -446,13 +387,13 @@ const Resume = () => {
               className="ai-logo-image"
             />
           </h1>
-          <p className="subtitle">Upload multiple resumes in PDF or DOCX format to extract key information</p>
+          <p className="subtitle">
+            Upload <strong style={{fontWeight: '700'}}>ATS-compliant</strong> resumes in PDF or DOCX format to extract key information
+          </p>
         </div>
-        
         <form onSubmit={handleSubmit} className="parser-form glass-card">
           <div className="form-section">
             <h2>Upload Method</h2>
-
             <div className="upload-method-section">
               <div className="method-cards">
                 <div 
@@ -465,7 +406,6 @@ const Resume = () => {
                   <div className="method-card-content">
                     <h3>Upload Files Directly</h3>
                     <p>Upload PDF, DOCX, or image files directly from your computer</p>
-                   
                   </div>
                   <div className="method-card-radio">
                     <input
@@ -478,7 +418,6 @@ const Resume = () => {
                     <span className="radio-custom"></span>
                   </div>
                 </div>
-
                 <div 
                   className={`method-card ${uploadType === 'excel' ? 'active' : ''}`}
                   onClick={() => setUploadType('excel')}
@@ -489,7 +428,6 @@ const Resume = () => {
                   <div className="method-card-content">
                     <h3>Excel with Google Drive Links</h3>
                     <p>Upload an Excel file containing Google Drive links to PDF resumes</p>
-                   
                   </div>
                   <div className="method-card-radio">
                     <input
@@ -504,9 +442,7 @@ const Resume = () => {
                 </div>
               </div>
             </div>
-
             {uploadType === 'files' ? (
-              // Existing file upload section
               <div className="input-group">
                 <label>Select Resume Files:</label>
                 <div className="custom-file-input">
@@ -527,7 +463,6 @@ const Resume = () => {
                 <small>Supported formats: PDF (.pdf), Word Document (.docx, .doc) - Multiple files allowed</small>
               </div>
             ) : (
-              // New Excel upload section
               <div className="input-group">
                 <label>Select Excel File with Google Drive Links:</label>
                 <div className="custom-file-input">
@@ -547,18 +482,10 @@ const Resume = () => {
                 <small>Excel file should contain Google Drive links to PDF resumes in any column</small>
               </div>
             )}
-            
-            {/* Show file info for regular files */}
             {uploadType === 'files' && files.length > 0 && (
               <div className="file-info glass-inner">
                 <div className="file-info-header">
                   <h3>Selected Files ({files.length}):</h3>
-                  {/* <span className="file-info-status">
-                    {rawAtsResults.length === files.length
-                      ? <span className="status-ready">ATS check complete for all files</span>
-                      : <span className="status-processing">Checking ATS compliance...</span>
-                    }
-                  </span> */}
                 </div>
                 <div className="files-list">
                   {files.map((file, index) => (
@@ -572,7 +499,6 @@ const Resume = () => {
                         paddingTop: '1.5rem'
                       }}
                     >
-                      {/* ATS score at top right */}
                       {rawAtsResults[index] && (
                         <span
                           style={{
@@ -611,7 +537,6 @@ const Resume = () => {
                       <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
                         <span className="file-name">{file.name}</span>
                         <span className="file-size">({(file.size / 1024 / 1024).toFixed(2)} MB)</span>
-                        {/* Show ATS status label (color bar) */}
                         {rawAtsResults[index] && (
                           <span
                             style={{
@@ -643,7 +568,6 @@ const Resume = () => {
                           </span>
                         )}
                       </div>
-                      {/* ATS accuracy message */}
                       {rawAtsResults[index] && (
                         <div
                           style={{
@@ -684,8 +608,6 @@ const Resume = () => {
                 </div>
               </div>
             )}
-            
-            {/* Show Excel info and Google Drive links */}
             {uploadType === 'excel' && excelFile && (
               <div className="file-info glass-inner">
                 <div className="file-info-header">
@@ -697,29 +619,24 @@ const Resume = () => {
                     }
                   </span>
                 </div>
-               
               </div>
             )}
-            
             {error && (
               <div className="error-message">
                 {error}
               </div>
             )}
-            
             {currentlyProcessing && (
               <div className="processing-message">
                 {currentlyProcessing}
               </div>
             )}
-            
             {successMessage && (
               <div className="success-message">
                 <span className="success-icon">✓</span> {successMessage}
               </div>
             )}
           </div>
-
           <button 
             type="submit" 
             className="submit-btn glass-btn-primary" 
@@ -737,7 +654,6 @@ const Resume = () => {
             )}
           </button>
         </form>
-
         {allParsedData.length > 0 && (
           <div className="results-section glass-card">
             <div className="results-header">
@@ -766,7 +682,6 @@ const Resume = () => {
                 </button>
               </div>
             </div>
-            
             <div className="table-container">
               <table className="resume-table">
                 <thead>
@@ -789,8 +704,8 @@ const Resume = () => {
                     <th>Personal Projects</th>
                     <th>Tech Stack</th>
                     <th>Achievements</th>
-                    <th>Languages</th> {/* New column */}
-                    <th>ATS Status</th> {/* New column */}
+                    <th>Languages</th>
+                    <th>ATS Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -879,13 +794,10 @@ const Resume = () => {
                             </span>
                           </td>
                         </tr>
-
                         {isExpanded && (
                           <tr className="expanded-content">
                             <td colSpan="17">
                               <div className="expanded-data-container">
-                              
-                          
                               </div>
                             </td>
                           </tr>
